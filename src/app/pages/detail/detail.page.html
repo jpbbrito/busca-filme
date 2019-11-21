@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-back-button defaultHref="/tabs/home"> </ion-back-button>
+      </ion-buttons>
+    <ion-title>Detalhes</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-card>
+    <img [src]="baseUrlImage + sizeImage + movie?.poster_path">
+    <ion-card-title>
+      {{movie?.title}}
+    </ion-card-title>
+    <ion-card-content>
+      {{movie?.overview}}
+    </ion-card-content>
+  </ion-card>
+</ion-content>

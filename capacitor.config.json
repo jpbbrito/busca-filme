@@ -1,0 +1,7 @@
+{
+  "appId": "com.buscafilme.app",
+  "appName": "BuscaFilme",
+  "bundledWebRuntime": false,
+  "npmClient": "npm",
+  "webDir": "www"
+}

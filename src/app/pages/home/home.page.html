@@ -1,0 +1,34 @@
+<ion-header>
+    <ion-toolbar>
+      <ion-title>
+        BuscaFilme
+      </ion-title>
+      
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-content class="ion-padding">
+    <ion-list >
+        <ion-item *ngFor="let item of movies" [routerLink]="['/tabs/detail/', item.id]" routerLinkActive="selected">
+            <ion-card>
+                <img [src]="imageBaseLink + item?.poster_path"/>
+                <ion-card-title>
+                   {{item?.title}}
+                </ion-card-title>
+                <ion-card-content>
+                    {{item?.overview | slice : 0 : 100}}
+                </ion-card-content>
+            </ion-card>
+        </ion-item>
+    </ion-list>
+
+    <ion-infinite-scroll (ionInfinite)="loadData($event)">
+      <ion-infinite-scroll-content
+        loadingSpinner="bubbles"
+        loadingText="Carregando mais dados...">
+      </ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+    
+  
+  </ion-content>
+  
