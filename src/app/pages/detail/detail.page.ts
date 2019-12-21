@@ -11,6 +11,9 @@ export class DetailPage implements OnInit {
   baseUrlImage = 'https://image.tmdb.org/t/p';
   sizeImage = '/w185_and_h278_bestv2';
   movie: Movie;
+  crew: any;
+  cast: any;
+  release: string;
   constructor( private activatedRoute: ActivatedRoute, private movieService: MoviesService ) { }
 
   ngOnInit() {
@@ -18,6 +21,14 @@ export class DetailPage implements OnInit {
       this.movieService.getMovieById(params.id)
         .subscribe( (response: Movie) => {
             this.movie = response;
+            this.movieService.getCast(this.movie.id).subscribe((res: any) => {
+              for (const item of res.crew) {
+                  if (item.job === 'Director') {
+                    this.crew = item;
+                  }
+              }
+              this.cast = res.cast;
+            });
         }, (error: any) => {
            console.log(error) ;
         });

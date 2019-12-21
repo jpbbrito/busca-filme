@@ -12,9 +12,12 @@
         <ion-item *ngFor="let item of movies" [routerLink]="['/tabs/detail/', item.id]" routerLinkActive="selected">
             <ion-card>
                 <img [src]="imageBaseLink + item?.poster_path"/>
-                <ion-card-title>
-                   {{item?.title}}
-                </ion-card-title>
+                <ion-card-header>
+                  <ion-card-title>
+                     {{item?.title}}
+                  </ion-card-title>
+                </ion-card-header>
+               
                 <ion-card-content>
                     {{item?.overview | slice : 0 : 100}}
                 </ion-card-content>
